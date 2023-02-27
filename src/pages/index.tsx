@@ -1,11 +1,18 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.css";
 
-const inter = Inter({ subsets: ['latin'] })
+import { scaleLinear } from "@visx/scale";
+
+const inter = Inter({ subsets: ["latin"] });
+const linearScale = scaleLinear({
+  domain: [0, 100],
+  range: [220, 0],
+});
 
 export default function Home() {
+  console.log(linearScale(50));
   return (
     <>
       <Head>
@@ -26,7 +33,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -119,5 +126,5 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }
